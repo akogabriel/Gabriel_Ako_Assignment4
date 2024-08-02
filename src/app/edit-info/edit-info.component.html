@@ -1,0 +1,71 @@
+<form (ngSubmit)="onSubmit()" #editInfoForm="ngForm">
+  <div>
+    <label for="streetName">Street Name</label>
+    <input
+      type="text"
+      id="streetName"
+      [(ngModel)]="user.streetName"
+      name="streetName"
+      required
+      #streetName="ngModel"
+    />
+    <div *ngIf="streetName.invalid && (streetName.dirty || streetName.touched)">
+      <div *ngIf="streetName.errors?.['required']">
+        Street Name is required.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="postalCode">Postal Code</label>
+    <input
+      type="text"
+      id="postalCode"
+      [(ngModel)]="user.postalCode"
+      name="postalCode"
+      required
+      #postalCode="ngModel"
+    />
+    <div *ngIf="postalCode.invalid && (postalCode.dirty || postalCode.touched)">
+      <div *ngIf="postalCode.errors?.['required']">
+        Postal Code is required.
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label for="city">City</label>
+    <input
+      type="text"
+      id="city"
+      [(ngModel)]="user.city"
+      name="city"
+      required
+      #city="ngModel"
+    />
+    <div *ngIf="city.invalid && (city.dirty || city.touched)">
+      <div *ngIf="city.errors?.['required']">City is required.</div>
+    </div>
+  </div>
+
+  <div>
+    <label for="phoneNumber">Phone Number</label>
+    <input
+      type="text"
+      id="phoneNumber"
+      [(ngModel)]="user.phoneNumber"
+      name="phoneNumber"
+      required
+      #phoneNumber="ngModel"
+    />
+    <div
+      *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)"
+    >
+      <div *ngIf="phoneNumber.errors?.['required']">
+        Phone Number is required.
+      </div>
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="editInfoForm.invalid">Save</button>
+</form>
